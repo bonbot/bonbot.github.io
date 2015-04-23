@@ -1,31 +1,72 @@
 <html>
 <head>
 <style>
-.tagline {
+.logo {
   margin: 40px;
   padding-top: 50px;
-  height: 100px;
+  text-align: center;
+}
+.tagline {
+  margin: 40px;
+  padding-top: 10px;
+  height: 50px;
   text-align: center;
   color:gray;
   font-family:Courier;
   letter-spacing: 10px;
-  font-size:200%;
+  font-size:150%;
+}
+
+.boot{
+  margin: 40px;
+  height: 50px;
+  text-align: center;
+  color:gray;
+  font-family:Courier;
+  letter-spacing: 10px;
+  font-size:300%;
 }
 
 .email {
   font-family:Courier;
 }
 </style>
+<script src="js/jquery-1.11.2.min.js"></script>
+
+<script> 
+  $( document ).ready(function() {
+    var symbols = ["|", "/", "-", "\\"];
+    var count = 0;
+    var myVar = setInterval(function updateFunc() {
+        var txt = "booting up";
+        if (count < 3) {
+           for(var i = 0; i < count+1; i++) {
+             txt += ".";
+           }
+        }
+        else {
+           txt += "...";
+           txt += symbols[count % 4];
+        }                     
+        $( "div.boot" ).text(txt );
+        count++;
+     }, 250);
+  }); 
+</script>
+
 </head>
 
 <body>
 
-<div align=center>
+<div class="logo">
 <img src = "graphics/logo-tsp.png"/>
 </div>
 
 <div class="tagline">
   Useful, Connected Machines.
+</div>
+
+<div class="boot">
 </div>
 
 <hr/>
